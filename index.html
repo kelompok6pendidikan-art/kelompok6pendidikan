@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMK Edu - Sekolah Menengah Kejuruan</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #0f172a;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        .hero {
+            min-height: 500px;
+            padding: 90px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background: linear-gradient(135deg, #0f172a, #1d4ed8);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            color: #dbeafe;
+            margin-bottom: 25px;
+        }
+
+        .hero img {
+            width: 42%;
+            max-width: 430px;
+            border-radius: 18px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #38bdf8;
+            color: #0f172a;
+            text-decoration: none;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #7dd3fc;
+        }
+
+        section {
+            padding: 70px 8%;
+            scroll-margin-top: 75px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            color: #0f172a;
+            font-size: 32px;
+        }
+
+        .section-title p {
+            color: #64748b;
+            margin-top: 8px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px #0f172a0d;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            color: #1d4ed8;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #64748b;
+        }
+
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .feature {
+            background: #eff6ff;
+            color: #1d4ed8;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .form-box {
+            max-width: 550px;
+            margin: auto;
+            padding: 30px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px #0f172a0d;
+        }
+
+        .form-box input,
+        .form-box select,
+        .form-box textarea {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            font: inherit;
+        }
+
+        .form-box textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-box .btn {
+            width: 100%;
+        }
+
+        #pesan {
+            text-align: center;
+            color: #15803d;
+            margin-top: 15px;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 850px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero img {
+                width: 80%;
+            }
+
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            header {
+                padding: 18px 5%;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 50px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGASI -->
+    <header>
+        <div class="logo">SMK EDU.</div>
+
+        <nav>
+            <a href="#beranda">Beranda</a>
+            <a href="#profil">Profil</a>
+            <a href="#jurusan">Jurusan</a>
+            <a href="#fasilitas">Fasilitas</a>
+            <a href="#daftar">PPDB</a>
+        </nav>
+    </header>
+
+    <!-- BERANDA -->
+    <section class="hero" id="beranda">
+        <div class="hero-content">
+            <h1>Selamat Datang di <span>SMK Edu</span></h1>
+
+            <p>
+                Sekolah Menengah Kejuruan yang berfokus pada
+                pendidikan, keterampilan, kreativitas, dan
+                kesiapan siswa menghadapi dunia kerja.
+                Siapkan masa depanmu bersama kami!
+            </p>
+
+            <a href="#jurusan" class="btn">Lihat Jurusan</a>
+        </div>
+
+        <img
+            src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80"
+            alt="Kegiatan pendidikan siswa">
+    </section>
+
+    <!-- PROFIL SEKOLAH -->
+    <section class="about" id="profil">
+        <div class="section-title">
+            <h2>Profil Sekolah</h2>
+            <p>Mengenal SMK Edu lebih dekat</p>
+        </div>
+
+        <div class="about-content">
+            <p>
+                SMK Edu merupakan contoh profil website sekolah
+                menengah kejuruan yang bertujuan membentuk siswa
+                berkarakter, kompeten, disiplin, dan siap menghadapi
+                perkembangan teknologi serta kebutuhan dunia kerja.
+            </p>
+
+            <div class="features">
+                <div class="feature">🎓 Pendidikan Berkualitas</div>
+                <div class="feature">💻 Praktik Kejuruan</div>
+                <div class="feature">🤝 Kerja Sama Industri</div>
+                <div class="feature">🏆 Pengembangan Prestasi</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JURUSAN -->
+    <section id="jurusan">
+        <div class="section-title">
+            <h2>Program Keahlian</h2>
+            <p>Pilih jurusan sesuai minat dan bakatmu.</p>
+        </div>
+
+        <div class="card-container">
+
+            <div class="card">
+                <div class="icon">💻</div>
+                <h3>Rekayasa Perangkat Lunak</h3>
+                <p>
+                    Mempelajari pemrograman, pembuatan website,
+                    aplikasi, dan pengembangan perangkat lunak.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🌐</div>
+                <h3>Teknik Komputer dan Jaringan</h3>
+                <p>
+                    Mempelajari instalasi komputer, konfigurasi
+                    jaringan, server, dan pemeliharaan sistem.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📊</div>
+                <h3>Akuntansi</h3>
+                <p>
+                    Mempelajari pencatatan transaksi, laporan
+                    keuangan, dan pengelolaan administrasi.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🏢</div>
+                <h3>Manajemen Perkantoran</h3>
+                <p>
+                    Mempelajari administrasi, pengarsipan,
+                    pelayanan, dan pengelolaan dokumen kantor.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🛍️</div>
+                <h3>Pemasaran</h3>
+                <p>
+                    Mempelajari promosi produk, penjualan,
+                    bisnis digital, dan pelayanan pelanggan.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">⚙️</div>
+                <h3>Teknik Kendaraan Ringan</h3>
+                <p>
+                    Mempelajari perawatan, pemeriksaan,
+                    dan perbaikan kendaraan bermotor.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FASILITAS -->
+    <section class="about" id="fasilitas">
+        <div class="section-title">
+            <h2>Fasilitas Sekolah</h2>
+            <p>Menunjang kegiatan belajar teori dan praktik.</p>
+        </div>
+
+        <div class="card-container">
+
+            <div class="card">
+                <div class="icon">🏫</div>
+                <h3>Ruang Kelas</h3>
+                <p>Tempat belajar yang nyaman untuk kegiatan pembelajaran.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🖥️</div>
+                <h3>Laboratorium Komputer</h3>
+                <p>Fasilitas praktik teknologi dan keterampilan digital.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📚</div>
+                <h3>Perpustakaan</h3>
+                <p>Sumber belajar untuk menambah pengetahuan siswa.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PPDB -->
+    <section id="daftar">
+        <div class="section-title">
+            <h2>Pendaftaran Siswa Baru</h2>
+            <p>Formulir minat pendaftaran peserta didik baru.</p>
+        </div>
+
+        <form class="form-box" id="formDaftar">
+            <input
+                type="text"
+                id="nama"
+                placeholder="Nama lengkap siswa"
+                required>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Alamat email"
+                required>
+
+            <input
+                type="tel"
+                id="telepon"
+                placeholder="Nomor telepon"
+                required>
+
+            <select id="jurusanPilihan" required>
+                <option value="">Pilih jurusan</option>
+                <option>Rekayasa Perangkat Lunak</option>
+                <option>Teknik Komputer dan Jaringan</option>
+                <option>Akuntansi</option>
+                <option>Manajemen Perkantoran</option>
+                <option>Pemasaran</option>
+                <option>Teknik Kendaraan Ringan</option>
+            </select>
+
+            <textarea
+                id="alasan"
+                placeholder="Alasan memilih jurusan (opsional)"></textarea>
+
+            <button type="submit" class="btn">
+                Kirim Formulir
+            </button>
+
+            <p id="pesan" role="status"></p>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 SMK Edu. Semua Hak Dilindungi.</p>
+        <p>Website Pendidikan Sekolah Menengah Kejuruan</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById("formDaftar");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const nama = document.getElementById("nama").value;
+            const jurusan =
+                document.getElementById("jurusanPilihan").value;
+
+            document.getElementById("pesan").textContent =
+                "Terima kasih, " + nama +
+                "! Minat pendaftaran jurusan " + jurusan +
+                " berhasil dicatat pada demo ini.";
+
+            form.reset();
+        });
+    </script>
+
+</body>
+</html>
